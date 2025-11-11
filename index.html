@@ -1,6 +1,141 @@
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
-# replace index.html with the content below (use your editor)
-git add index.html
-git commit -m "Replace with full love page"
-git push origin main
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Sreekutty ❤️</title>
+  <style>
+    :root{--bg:#1b0a0f;--accent:#e53935;--soft:#ffd6db;--glass:rgba(255,255,255,0.06)}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{background: radial-gradient(ellipse at top left,#2b0f17 0%, #10040a 60%), url('https://images.unsplash.com/photo-1505575978476-7a0f5b70f643?q=80&w=1600&auto=format&fit=crop') center/cover fixed no-repeat;color:#fff;display:flex;align-items:center;justify-content:center}
+    .card{width:92%;max-width:980px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:18px;padding:28px;box-shadow:0 10px 40px rgba(0,0,0,0.6);backdrop-filter: blur(6px);position:relative;overflow:hidden}
+    header{display:flex;gap:18px;align-items:center}
+    .logo{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#ff6b6b);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;box-shadow:0 6px 18px rgba(229,57,53,0.28)}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:4px 0 0 0;opacity:0.9}
+    .hearts{position:absolute;inset:0;pointer-events:none}
+    .heart{position:absolute;width:18px;height:18px;background:var(--accent);transform:rotate(45deg);border-radius:3px;opacity:0.9}
+    .heart:before,.heart:after{content:'';position:absolute;width:18px;height:18px;background:var(--accent);border-radius:50%}
+    .heart:before{top:-9px;left:0}
+    .heart:after{left:9px;top:0}
+    .slideshow{margin-top:18px;border-radius:12px;overflow:hidden;background:var(--glass);padding:12px}
+    .slides{display:flex;gap:12px;align-items:center}
+    .slide{min-width:100%;flex-shrink:0;transition:transform 0.6s ease}
+    .slide img{display:block;width:100%;height:420px;object-fit:cover;border-radius:8px}
+    .controls{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+    .controls button{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:10px 14px;border-radius:10px;color:#fff;cursor:pointer}
+    .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+    .quote{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:10px}
+    .quote p{margin:0;font-style:italic}
+    .final{margin-top:18px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(229,57,53,0.08), rgba(255,255,255,0.02));text-align:center}
+    .final h2{margin:0 0 8px 0;color:var(--soft)}
+    .final p{margin:0 0 12px 0}
+    .signature{margin-top:12px;font-weight:700;opacity:0.95}
+    footer{margin-top:18px;text-align:center;opacity:0.85;font-size:13px}
+    @media (max-width:640px){.slide img{height:260px}}
+  </style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="hearts" id="hearts"></div>
+    <header>
+      <div class="logo">S</div>
+      <div>
+        <h1>For <span id="loverName">Sreekutty</span> ❤️</h1>
+        <p class="lead">A little surprise just for you — click, play and smile ✨</p>
+      </div>
+    </header>
+
+    <div style="margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <div style="flex:1;min-width:300px">
+        <div style="border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.5)">
+          <iframe id="ytplayer" width="100%" height="220" src="https://www.youtube.com/embed/93iK4wNij8E?si=kqphtandlBemAT4E&rel=0&modestbranding=1&autoplay=0" title="Mundhinam Parthene - Vaaranam Aayiram" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div style="width:220px">
+        <button id="playAudio" style="width:100%;padding:12px;border-radius:10px;border:none;background:var(--accent);color:white;font-weight:700;cursor:pointer">Play the song for Sreekutty</button>
+      </div>
+    </div>
+
+    <div class="slideshow">
+      <div style="overflow:hidden">
+        <div class="slides" id="slides">
+          <div class="slide"><img src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?q=80&w=1600&auto=format&fit=crop" alt="slide1"></div>
+          <div class="slide"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop" alt="slide2"></div>
+          <div class="slide"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1600&auto=format&fit=crop" alt="slide3"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <div>
+          <button id="prev">◀ Prev</button>
+          <button id="next">Next ▶</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="quotes">
+      <div class="quote"><p>"In you, I've found the love I never knew I needed."</p></div>
+      <div class="quote"><p>"Every moment with you feels like a beautiful dream."</p></div>
+      <div class="quote"><p>"If I had a single flower for every time I thought of you, I could walk forever in my garden."</p></div>
+      <div class="quote"><p>"You are my today and all of my tomorrows."</p></div>
+    </div>
+
+    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+      <div style="flex:1;min-width:180px;background:rgba(0,0,0,0.18);padding:12px;border-radius:10px">Hey Sreekutty — remember when we laughed until we couldn't breathe? I love that we can be silly together.</div>
+      <div style="flex:1;min-width:180px;background:rgba(0,0,0,0.18);padding:12px;border-radius:10px">You light up my days. Even ordinary moments feel special with you.</div>
+    </div>
+
+    <div class="final">
+      <h2>To my dearest <span id="finalName">Sreekutty</span>,</h2>
+      <p id="finalMsg">You mean the world to me. Your smile is my sunrise, your voice is my comfort, and your love is my home. Thank you for being you — beautiful, kind, and endlessly wonderful.</p>
+      <div class="signature">— Praveen</div>
+    </div>
+
+    <footer>Made with ❤️ — Click anywhere to sprinkle a little heart</footer>
+  </div>
+
+  <script>
+    (function spawnHearts(){
+      const container=document.getElementById('hearts');
+      function makeHeart(){
+        const h=document.createElement('div');
+        h.className='heart';
+        const size=Math.random()*26+10;
+        h.style.width=size+'px';
+        h.style.height=size+'px';
+        h.style.left=Math.random()*100+'%';
+        h.style.top=Math.random()*100+'%';
+        h.style.opacity=(0.6+Math.random()*0.4);
+        h.style.transform='rotate('+(Math.random()*60-30)+'deg) scale('+(0.6+Math.random())+')';
+        container.appendChild(h);
+        setTimeout(()=>{h.style.transition='all 6s linear'; h.style.transform+=' translateY(-200px)'; h.style.opacity=0;},50);
+        setTimeout(()=>container.removeChild(h),7000);
+      }
+      setInterval(makeHeart,700);
+    })();
+
+    const slidesEl=document.getElementById('slides');
+    const slides=document.querySelectorAll('.slide');
+    let idx=0, auto=true;
+    function show(index){ slidesEl.style.transform='translateX('+(-index*100)+'%)'; }
+    document.getElementById('next').addEventListener('click',()=>{ idx=(idx+1)%slides.length; show(idx); auto=false; });
+    document.getElementById('prev').addEventListener('click',()=>{ idx=(idx-1+slides.length)%slides.length; show(idx); auto=false; });
+    slides.forEach(s=>s.addEventListener('click',()=>auto=false));
+    setInterval(()=>{ if(auto){ idx=(idx+1)%slides.length; show(idx); } },4000);
+
+    document.getElementById('playAudio').addEventListener('click',()=>{ document.getElementById('ytplayer').scrollIntoView({behavior:'smooth'}); });
+
+    document.getElementById('card').addEventListener('click',(e)=>{
+      const c=document.createElement('div');
+      c.className='heart';
+      c.style.left=(e.clientX/window.innerWidth*100)+'%';
+      c.style.top=(e.clientY/window.innerHeight*100)+'%';
+      c.style.width='22px';
+      c.style.height='22px';
+      document.getElementById('hearts').appendChild(c);
+      setTimeout(()=>{ c.style.transition='all 1s ease'; c.style.transform+=' translateY(-40px) scale(1.6)'; c.style.opacity=0 },500);
+      setTimeout(()=>c.remove(),1400);
+    });
+  </script>
+</body>
+</html>
